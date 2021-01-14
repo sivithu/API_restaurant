@@ -14,7 +14,7 @@ router.get('/:postalCode', function(req, res, next) {
     var price = parseInt(req.query.price);
     var preparationTime = parseInt(req.query.preparationTime);
 
-    var storesByPostalCode = mock.STORES.filter(store => store.location.postal_code == postalCode);
+    var storesByPostalCode = mock.STORES.stores.filter(store => store.location.postal_code == postalCode);
     var storesFiltered = mock.STORES.stores.filter(store => {
         return (store.location.postal_code == postalCode) && (store.price_bucket <= price) && (store.avg_prep_time <= preparationTime)
     });
